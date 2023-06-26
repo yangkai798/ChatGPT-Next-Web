@@ -2,14 +2,14 @@ import { useEffect, useRef } from "react";
 
 import styles from "./home.module.scss";
 
-import { IconButton } from "./button";
-import SettingsIcon from "../icons/settings.svg";
-import GithubIcon from "../icons/github.svg";
-import ChatGptIcon from "../icons/chatgpt.svg";
 import AddIcon from "../icons/add.svg";
+import ChatGptIcon from "../icons/chatgpt.svg";
 import CloseIcon from "../icons/close.svg";
+import GithubIcon from "../icons/github.svg";
 import MaskIcon from "../icons/mask.svg";
 import PluginIcon from "../icons/plugin.svg";
+import SettingsIcon from "../icons/settings.svg";
+import { IconButton } from "./button";
 
 import Locale from "../locales";
 
@@ -23,9 +23,9 @@ import {
   REPO_URL,
 } from "../constant";
 
+import dynamic from "next/dynamic";
 import { Link, useNavigate } from "react-router-dom";
 import { useMobileScreen } from "../utils";
-import dynamic from "next/dynamic";
 import { showToast } from "./ui-lib";
 
 const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
@@ -111,16 +111,15 @@ export function SideBar(props: { className?: string }) {
 
   return (
     <div
-      className={`${styles.sidebar} ${props.className} ${
-        shouldNarrow && styles["narrow-sidebar"]
-      }`}
+      className={`${styles.sidebar} ${props.className} ${shouldNarrow && styles["narrow-sidebar"]
+        }`}
     >
       <div className={styles["sidebar-header"]} data-tauri-drag-region>
         <div className={styles["sidebar-title"]} data-tauri-drag-region>
-          ChatGPT Next
+          chatpod.cn
         </div>
         <div className={styles["sidebar-sub-title"]}>
-          Build your own AI assistant.
+          科技向善.
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
